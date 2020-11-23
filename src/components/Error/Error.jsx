@@ -6,9 +6,7 @@ const Error = (props) => {
   return (
     <>
       <ErrorWrapper>
-        <ErrorMessage>
-          {props.msg}
-        </ErrorMessage>
+        <ErrorMessage>{props.msg}</ErrorMessage>
       </ErrorWrapper>
     </>
   );

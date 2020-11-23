@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import {
   FormInput,
   FormTitle,
@@ -6,15 +6,15 @@ import {
   FormWrapper,
   SubmitBtn,
   ResWrapper,
-} from './FormElements';
-import ResultCard from '../ResultCard/ResultCard';
-import Loading from '../Loading/Loading';
-import Error from '../Error/Error';
+} from "./FormElements";
+import ResultCard from "../ResultCard/ResultCard";
+import Loading from "../Loading/Loading";
+import Error from "../Error/Error";
 
 const Form = () => {
-  const [city, setCity] = useState('');
+  const [city, setCity] = useState("");
   const [data, setData] = useState([]);
-  const [error, setError] = useState('');
+  const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
 
   const fetchWeather = async (city) => {
@@ -37,24 +37,26 @@ const Form = () => {
       setLoading(false);
     } catch (e) {
       console.log(e);
-      showError();
+      showError("problem with API. Come back later :) ");
     }
   };
 
-  const showError = () => setError(true);
-  setTimeout(() => {
-    setError(false);
-  }, 2000);
+  const showError = (msg) => {
+    setError(msg);
+    setTimeout(() => {
+      setError("");
+    }, 2000);
+  };
 
   const onSubmit = (e) => {
     e.preventDefault();
-    if (city !== '' || null) {
+    if (city !== "" || null) {
       setLoading(true);
       fetchWeather(city);
-    } else if (city === '' || null) {
-      setError('hello');
+    } else if (city === "" || null) {
+      showError("Please enter all fields.");
     } else {
-      showError();
+      showError("Error with API or I have crashed production :( ");
     }
   };
 
@@ -66,13 +68,13 @@ const Form = () => {
         <FormTitle>Enter your city to get weather</FormTitle>
         <WeatherForm onSubmit={onSubmit}>
           <FormInput
-            type='text'
-            name='text'
-            placeholder='get weather'
+            type="text"
+            name="text"
+            placeholder="get weather"
             value={city}
             onChange={onChange}
           />
-          <SubmitBtn type='submit' value='submit' round='true' />
+          <SubmitBtn type="submit" value="submit" round="true" />
         </WeatherForm>
       </FormWrapper>
       <ResWrapper>
