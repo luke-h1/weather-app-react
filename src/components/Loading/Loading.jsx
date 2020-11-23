@@ -1,7 +1,7 @@
-import React from 'react';
-import loading from '../../assets/Images/loading.gif';
+import React from "react";
+import loading from "../../assets/Images/loading.gif";
 
-import { LoadingWrapper, LoadingImage } from './LoadingElements';
+import { LoadingWrapper, LoadingImage } from "./LoadingElements";
 
 const Loading = () => {
   return (

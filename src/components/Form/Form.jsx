@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import {
   FormInput,
   FormTitle,
@@ -6,14 +6,15 @@ import {
   FormWrapper,
   SubmitBtn,
   ResWrapper,
-} from './FormElements';
-import ResultCard from '../ResultCard/ResultCard';
-import Loading from '../Loading/Loading';
-
+} from "./FormElements";
+import ResultCard from "../ResultCard/ResultCard";
+import Loading from "../Loading/Loading";
+import Error from "../Error/Error";
 
 const Form = () => {
-  const [city, setCity] = useState('');
+  const [city, setCity] = useState("");
   const [data, setData] = useState([]);
+  const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const fetchWeather = async (city) => {
     const API_URL = `https://cors-anywhere.herokuapp.com/http://api.weatherapi.com/v1/current.json?key=${process.env.REACT_APP_API_KEY}&q=${city}`;
@@ -31,19 +32,26 @@ const Form = () => {
       />
     );
     setData(result);
-    setLoading(false)
+    setLoading(false);
   };
+
+  const showError = () => setError(true);
+  setTimeout(() => {
+    setError(false);
+  }, 2000);
 
   const onSubmit = (e) => {
     e.preventDefault();
-    if (city !== '' || null) {
-      setLoading(true)
+    if (city !== "" || null) {
+      setLoading(true);
       fetchWeather(city);
+    } else if (city === "" || null) {
+      showError();
     } else {
-      // show error
-      console.log('this is the error ');
+      showError();
     }
   };
+
   const onChange = (e) => setCity(e.target.value);
 
   return (
@@ -52,20 +60,22 @@ const Form = () => {
         <FormTitle>Enter your city to get weather</FormTitle>
         <WeatherForm onSubmit={onSubmit}>
           <FormInput
-            type='text'
-            name='text'
-            placeholder='get weather'
+            type="text"
+            name="text"
+            placeholder="get weather"
             value={city}
             onChange={onChange}
           />
-          <SubmitBtn type='submit' value='submit' round='true' />
+          <SubmitBtn type="submit" value="submit" round="true" />
         </WeatherForm>
       </FormWrapper>
       <ResWrapper>
         {data ? data : null}
         {loading ? <Loading /> : null}
+        {error ? <Error /> : null}
       </ResWrapper>
     </>
   );
 };
+
 export default Form;
