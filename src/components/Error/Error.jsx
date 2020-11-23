@@ -7,7 +7,7 @@ const Error = (props) => {
     <>
       <ErrorWrapper>
         <ErrorMessage>
-          Problem with the API / Please fill out all fields
+          {props.msg}
         </ErrorMessage>
       </ErrorWrapper>
     </>
