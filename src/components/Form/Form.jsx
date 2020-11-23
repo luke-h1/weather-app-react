@@ -24,7 +24,7 @@ const Form = () => {
   return (
     <>
       <FormWrapper>
-        <FormTitle></FormTitle>
+        <FormTitle>Enter your city to get weather</FormTitle>
         <WeatherForm onSubmit={onSubmit}>
           <FormInput
             type='text'
@@ -33,7 +33,7 @@ const Form = () => {
             value={text}
             onChange={onChange}
           />
-          <SubmitBtn type='submit' value='submit' />
+          <SubmitBtn type='submit' value='submit' round='true' />
         </WeatherForm>
       </FormWrapper>
     </>
