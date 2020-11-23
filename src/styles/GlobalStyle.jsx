@@ -1,7 +1,6 @@
-import { createGlobalStyle } from 'styled-components';
-import { primaryFont } from './Typography.jsx';
-import { normalize } from 'polished';
-
+import { createGlobalStyle } from "styled-components";
+import { PrimaryFont } from "./Typography.jsx";
+import { normalize } from "polished";
 
 export const GlobalStyle = createGlobalStyle`
   ${normalize()}
@@ -13,12 +12,11 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   body { 
-    font-family: ${primaryFont};
+    font-family: ${PrimaryFont};
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     background-color: #fff;
     color: #000;
-
   }
 
-`
+`;
