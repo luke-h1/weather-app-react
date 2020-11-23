@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 import {
   FormInput,
   FormTitle,
@@ -6,12 +6,15 @@ import {
   FormWrapper,
   SubmitBtn,
   ResWrapper,
-} from "./FormElements";
-import ResultCard from "../ResultCard/ResultCard";
-const Form = () => {
-  const [city, setCity] = useState("");
-  const [data, setData] = useState();
+} from './FormElements';
+import ResultCard from '../ResultCard/ResultCard';
+import Loading from '../Loading/Loading';
 
+
+const Form = () => {
+  const [city, setCity] = useState('');
+  const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(false);
   const fetchWeather = async (city) => {
     const API_URL = `https://cors-anywhere.herokuapp.com/http://api.weatherapi.com/v1/current.json?key=${process.env.REACT_APP_API_KEY}&q=${city}`;
     const res = await fetch(API_URL);
@@ -28,15 +31,17 @@ const Form = () => {
       />
     );
     setData(result);
+    setLoading(false)
   };
 
   const onSubmit = (e) => {
     e.preventDefault();
-    if (city !== "" || null) {
+    if (city !== '' || null) {
+      setLoading(true)
       fetchWeather(city);
     } else {
       // show error
-      console.log("this is the error ");
+      console.log('this is the error ');
     }
   };
   const onChange = (e) => setCity(e.target.value);
@@ -47,16 +52,19 @@ const Form = () => {
         <FormTitle>Enter your city to get weather</FormTitle>
         <WeatherForm onSubmit={onSubmit}>
           <FormInput
-            type="text"
-            name="text"
-            placeholder="get weather"
+            type='text'
+            name='text'
+            placeholder='get weather'
             value={city}
             onChange={onChange}
           />
-          <SubmitBtn type="submit" value="submit" round="true" />
+          <SubmitBtn type='submit' value='submit' round='true' />
         </WeatherForm>
       </FormWrapper>
-      <ResWrapper>{data ? data : null}</ResWrapper>
+      <ResWrapper>
+        {data ? data : null}
+        {loading ? <Loading /> : null}
+      </ResWrapper>
     </>
   );
 };
