@@ -1,3 +1,3 @@
 ## React weather App 
 
-  * Simple Weather application build with React & styled components
+  * Simple Weather application built with React & styled components
