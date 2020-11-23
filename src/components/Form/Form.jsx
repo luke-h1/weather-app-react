@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 import {
   FormInput,
@@ -6,20 +6,28 @@ import {
   WeatherForm,
   FormWrapper,
   SubmitBtn,
-} from './FormElements';
+} from "./FormElements";
 
 const Form = () => {
-  const [text, setText] = useState('');
+  const [city, setCity] = useState("");
+
+  const fetchWeather = async (city) => {
+    const API_URL = `http://api.weatherapi.com/v1/current.json?key=${process.env.REACT_APP_KEY}&q=${city}`
+    const res = await fetch(API_URL);
+    const data = await res.json();
+    console.log(data);
+  };
 
   const onSubmit = (e) => {
     e.preventDefault();
-    if (text !== '' || null) {
-      // fetch weather
+    if (city !== "" || null) {
+      fetchWeather(city);
     } else {
       // show error
+      console.log('this is the error ')
     }
   };
-  const onChange = (e) => setText(e.target.value);
+  const onChange = (e) => setCity(e.target.value);
 
   return (
     <>
@@ -27,13 +35,13 @@ const Form = () => {
         <FormTitle>Enter your city to get weather</FormTitle>
         <WeatherForm onSubmit={onSubmit}>
           <FormInput
-            type='text'
-            name='text'
-            placeholder='get weather'
-            value={text}
+            type="text"
+            name="text"
+            placeholder="get weather"
+            value={city}
             onChange={onChange}
           />
-          <SubmitBtn type='submit' value='submit' round='true' />
+          <SubmitBtn type="submit" value="submit" round="true" />
         </WeatherForm>
       </FormWrapper>
     </>

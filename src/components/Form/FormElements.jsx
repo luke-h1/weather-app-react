@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const FormWrapper = styled.div`
   display: flex;
@@ -24,11 +24,11 @@ export const FormInput = styled.input`
 `;
 
 export const SubmitBtn = styled.input`
-  background: ${({ primary }) => (primary ? '#f26a2e' : '#077bf1')};
+  background: ${({ primary }) => (primary ? "#f26a2e" : "#077bf1")};
   white-space: nowrap;
-  padding: ${({ big }) => (big ? '16px 40px' : '10px 32px')};
+  padding: ${({ big }) => (big ? "16px 40px" : "10px 32px")};
   color: #fff;
-  font-size: ${({ big }) => (big ? '20px' : '16px')};
+  font-size: ${({ big }) => (big ? "20px" : "16px")};
   outline: 0;
   border: none;
   margin-left: 10px;
@@ -36,11 +36,17 @@ export const SubmitBtn = styled.input`
   cursor: pointer;
   text-decoration: none;
   transition: 0.3s !important;
-  border-radius: ${({ round }) => (round ? '50px' : 'none')};
+  border-radius: ${({ round }) => (round ? "50px" : "none")};
   &:hover {
-    background: ${({ primary }) => (primary ? '#077bf1' : '#f26a2e')};
+    background: ${({ primary }) => (primary ? "#077bf1" : "#f26a2e")};
     transform: translateY(-2px);
   }
 `;
 
-export const ResultContainer = styled.div``;
+export const ResultContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+`;
