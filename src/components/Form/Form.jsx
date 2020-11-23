@@ -13,7 +13,7 @@ const Form = () => {
   const [data, setData] = useState();
 
   const fetchWeather = async (city) => {
-    const API_URL = `http://api.weatherapi.com/v1/current.json?key=${process.env.REACT_APP_API_KEY}&q=${city}`;
+    const API_URL = `https://cors-anywhere.herokuapp.com/http://api.weatherapi.com/v1/current.json?key=${process.env.REACT_APP_API_KEY}&q=${city}`;
     const res = await fetch(API_URL);
     const data = await res.json();
     const result = (
