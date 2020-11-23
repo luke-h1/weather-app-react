@@ -6,7 +6,7 @@ export const FormWrapper = styled.div`
   justify-content: center;
   align-items: center;
   min-width: 100vw;
-  min-height: 30vh;
+  min-height: 40vh;
 `;
 
 export const FormTitle = styled.h2`
@@ -43,10 +43,14 @@ export const SubmitBtn = styled.input`
   }
 `;
 
-export const ResultContainer = styled.div`
+export const ResWrapper = styled.div`
   display: flex;
   flex-direction: column;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   padding: 1rem;
+  @media(max-width: 640px){
+    padding: 0rem;
+  }
 `;
