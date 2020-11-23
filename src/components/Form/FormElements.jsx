@@ -50,7 +50,7 @@ export const ResWrapper = styled.div`
   justify-content: center;
   align-items: center;
   padding: 1rem;
-  @media(max-width: 640px){
+  @media (max-width: 640px) {
     padding: 0rem;
   }
 `;

@@ -5,6 +5,7 @@ export const HeaderWrap = styled.header`
   color: #fff;
   background-color: #000;
   text-align: center;
+  min-width: 100vw;
 `;
 
 export const HeaderTitle = styled.h1`
