@@ -38,8 +38,7 @@ const Form = () => {
     } catch (e) {
       console.log(e);
       showError("problem with API. Come back later :) ");
-      setLoading(false)
-
+      setLoading(false);
     }
   };
 
@@ -57,10 +56,10 @@ const Form = () => {
       fetchWeather(city);
     } else if (city === "" || null) {
       showError("Please enter all fields.");
-      setLoading(false)
+      setLoading(false);
     } else {
       showError("Error with API or I have crashed production :( ");
-      setLoading(false)
+      setLoading(false);
     }
   };
 
