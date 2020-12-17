@@ -81,7 +81,7 @@ const Form = () => {
         </WeatherForm>
       </FormWrapper>
       <ResWrapper>
-        {data ? data : null}
+        {data ? data : 'null'}
         {loading ? <Loading /> : null}
         {error ? <Error msg={error} /> : null}
       </ResWrapper>
