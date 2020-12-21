@@ -19,7 +19,7 @@ const Form = () => {
 
   const fetchWeather = async (city) => {
     try {
-      const API_URL = `https://weather-api-express-node.herokuapp.com/api/city/current/${city}`;
+      const API_URL = `${process.env.PROD_API_URL}/${city}`;
       const res = await fetch(API_URL);
       const data = await res.json();
       const result = (
@@ -68,9 +68,7 @@ const Form = () => {
   return (
     <>
       <FormWrapper>
-        <FormTitle>
-          Enter your city for weather information
-        </FormTitle>
+        <FormTitle>Enter your city for weather information</FormTitle>
         <WeatherForm onSubmit={onSubmit}>
           <FormInput
             type="text"
