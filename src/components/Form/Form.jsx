@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React, { useState } from "react";
 import {
   FormInput,
@@ -19,7 +20,7 @@ const Form = () => {
 
   const fetchWeather = async (city) => {
     try {
-      const API_URL = `https://cors-anywhere.herokuapp.com/http://api.weatherapi.com/v1/current.json?key=${process.env.REACT_APP_API_KEY}&q=${city}`;
+      const API_URL = `https://weather-api-express-node.herokuapp.com/api/city/current/${city}`;
       const res = await fetch(API_URL);
       const data = await res.json();
       const result = (
@@ -58,7 +59,7 @@ const Form = () => {
       showError("Please enter all fields.");
       setLoading(false);
     } else {
-      showError("Error with API or I have crashed production :( ");
+      showError("Error with API");
       setLoading(false);
     }
   };
@@ -68,7 +69,9 @@ const Form = () => {
   return (
     <>
       <FormWrapper>
-        <FormTitle>Enter your city to get weather</FormTitle>
+        <FormTitle>
+          Enter your city for weather information
+        </FormTitle>
         <WeatherForm onSubmit={onSubmit}>
           <FormInput
             type="text"
@@ -81,7 +84,7 @@ const Form = () => {
         </WeatherForm>
       </FormWrapper>
       <ResWrapper>
-        {data ? data : 'null'}
+        {data ? data : "null"}
         {loading ? <Loading /> : null}
         {error ? <Error msg={error} /> : null}
       </ResWrapper>
