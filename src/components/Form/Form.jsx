@@ -11,6 +11,7 @@ import ResultCard from "../ResultCard/ResultCard";
 import Loading from "../Loading/Loading";
 import Error from "../Error/Error";
 
+
 const Form = () => {
   const [city, setCity] = useState("");
   const [data, setData] = useState([]);
