@@ -25,13 +25,13 @@ const Form = () => {
       const data = await res.json();
       const result = (
         <ResultCard
-          key={data.location.lat}
-          location={data.location.region}
-          icon={data.current.condition.icon}
-          condition={data.current.condition.text}
-          temp={data.current.temp_c}
-          time={data.location.localtime}
-          wind={data.current.wind_mph}
+          key={data.data.location.lat}
+          location={data.data.location.region}
+          icon={data.data.current.condition.icon}
+          condition={data.data.current.condition.text}
+          temp={data.data.current.temp_c}
+          time={data.data.location.localtime}
+          wind={data.data.current.wind_mph}
         />
       );
       setData(result);
