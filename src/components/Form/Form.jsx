@@ -20,7 +20,7 @@ const Form = () => {
 
   const fetchWeather = async (city) => {
     try {
-      const API_URL = `https://weather-api-express-node.herokuapp.com/api/city/weather/${city}`;
+      const API_URL = `https://weather-api-express-node.herokuapp.com/api/weather/${city}`;
       const res = await fetch(API_URL);
       const data = await res.json();
       const result = (
