@@ -1,5 +1,5 @@
 #!/bin/bash
-echo "🎆 deploying to prod 🎆"
+echo "🎆 deploying backend to production 🎆"
 cd backend
 git add * 
 git commit -am "deploy"
