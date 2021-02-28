@@ -1,15 +1,15 @@
 import React, { useContext } from 'react';
-import { Formik, Form, useField, FieldAttributes } from 'formik';
-import Image from 'next/image';
+import {
+  Formik, Form, useField, FieldAttributes,
+} from 'formik';
 import * as yup from 'yup';
 import {
-  Box,
+  UnorderedList,
+  ListItem,
   Flex,
-  Heading,
   FormLabel,
   Input,
   Text,
-  Badge,
 } from '@chakra-ui/react';
 import { Button } from './Button';
 import { WeatherSchema } from '../validations/WeatherValidation';
@@ -31,6 +31,7 @@ const CustomInput: React.FC<FieldAttributes<{}>> = ({
         placeholder={placeholder}
         error={!!errorText}
         FormErrorMessage={errorText}
+        py={6}
         mb={6}
       />
     </>
@@ -38,7 +39,9 @@ const CustomInput: React.FC<FieldAttributes<{}>> = ({
 };
 const RegisterScreen: React.FC = () => {
   const weatherContext = useContext(WeatherContext);
-  const { loading, error, weather, searchWeather } = weatherContext;
+  const {
+    loading, error, weather, searchWeather,
+  } = weatherContext;
 
   return (
     <>
@@ -48,13 +51,7 @@ const RegisterScreen: React.FC = () => {
         align="center"
         minH={50}
         mb={10}
-      >
-        <Box>
-          <Heading as="h1" fontSize="40px" mb={4}>
-            Login
-          </Heading>
-        </Box>
-      </Flex>
+      />
       <Flex
         direction="column"
         justify="center"
@@ -74,7 +71,7 @@ const RegisterScreen: React.FC = () => {
             setSubmitting(false);
           }}
         >
-          {({ values, isSubmitting, errors }) => (
+          {({ isSubmitting, errors }) => (
             <>
               <Form>
                 <CustomInput
@@ -97,62 +94,39 @@ const RegisterScreen: React.FC = () => {
                   {loading && <Loader />}
                   {weather && (
                     <>
-                      <Box
-                        maxW="sm"
-                        borderWidth="1px"
-                        borderRadius="lg"
-                        overflow="hidden"
-                      >
-                        <Box p="6">
-                          <Box d="flex" alignItems="baseline">
-                            <Badge
-                              borderRadius="full"
-                              px="2"
-                              colorScheme="teal"
-                            ></Badge>
-                            <Box
-                              color="#000"
-                              fontWeight="semibold"
-                              letterSpacing="wide"
-                              fontSize="xs"
-                              textTransform="uppercase"
-                              ml="2"
-                            >
-                              <Text color="#000">
-                                LocalTime: {weather.data.location.localtime}
-                              </Text>
-                            </Box>
-                          </Box>
-
-                          <Box
-                            mt="1"
-                            fontWeight="semibold"
-                            as="h4"
-                            lineHeight="tight"
-                            isTruncated
-                            color="#000"
-                          >
-                            <Text color="#000">
-                              Wind MPH:{weather.data.current.wind_mph}
-                            </Text>
-                          </Box>
-
-                          <Box>
-                            <Box as="span" color="#000" fontSize="sm">
-                              <Text color="#000">
-                                Humidity: {weather.data.current.humidity}%
-                              </Text>
-                              <Text color="#000">
-                                Temp: {weather.data.current.temp_c} degrees
-                              </Text>
-                            </Box>
-                          </Box>
-                        </Box>
-                      </Box>
+                      <Flex direction="column" align="center" justify="center" mt={20}>
+                        <UnorderedList>
+                          <ListItem mb={10}>
+                            {' '}
+                            LocalTime:
+                            {' '}
+                            {weather.data.location.localtime}
+                          </ListItem>
+                          <ListItem mb={10}>
+                            {' '}
+                            Wind:
+                            {weather.data.current.wind_mph}
+                            {' '}
+                            MPH
+                          </ListItem>
+                          <ListItem mb={10}>
+                            {' '}
+                            Humidity:
+                            {' '}
+                            {weather.data.current.humidity}
+                          </ListItem>
+                          <ListItem mb={10}>
+                            {' '}
+                            Temp:
+                            {' '}
+                            {weather.data.current.temp_c}
+                          </ListItem>
+                        </UnorderedList>
+                      </Flex>
                     </>
                   )}
                 </Flex>
-                <Text color="#000"></Text>
+                <Text color="#000" />
               </Form>
             </>
           )}
