@@ -27,17 +27,6 @@ const CustomInput: React.FC<FieldAttributes<{}>> = ({
   );
 };
 const RegisterScreen: React.FC = () => {
-  const router = useRouter();
-  const userRegister = useSelector((state) => state.userLogin);
-  const { loading, error, userInfo } = userRegister;
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    if (userInfo) {
-      router.push('/dashboard');
-    }
-  }, [router, userInfo]);
-
   return (
     <>
       <Flex
@@ -62,41 +51,32 @@ const RegisterScreen: React.FC = () => {
       >
         <Formik
           initialValues={{
-            email: '',
-            password: '',
+            city: '',
           }}
           validationSchema={WeatherSchema}
           onSubmit={(data, { setSubmitting }) => {
-            const { email, password } = data;
+            const { city } = data;
             setSubmitting(true);
-            // make async call to get weather here 
+            // make async call to get weather here
             setSubmitting(false);
           }}
         >
           {({ values, isSubmitting, errors }) => (
             <>
               <Form>
-                {error && <Error>{error}</Error>}
-                {loading && <Loader />}
+                {/* {error && <Error>{error}</Error>}
+                {loading && <Loader />} */}
 
                 <CustomInput
-                  placeholder="email"
-                  name="email"
-                  type="input"
-                  as={Input}
-                />
-                <CustomInput
-                  placeholder="password"
-                  name="password"
+                  placeholder="city"
+                  name="city"
                   type="input"
                   as={Input}
                 />
 
                 <FormLabel as="p" color="red">
                   {' '}
-                  {errors.email || errors.password
-                    ? 'Invalid credentials!'
-                    : ''}
+                  {errors.city ? 'Not a valid city' : ''}
                 </FormLabel>
 
                 <Button as="button" disabled={isSubmitting} type="submit">
