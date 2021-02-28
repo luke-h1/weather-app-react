@@ -21,7 +21,7 @@ const WeatherState = ({ children }) => {
     try {
       setLoading();
       const res = await axios.get(
-        `http://localhost:5001/api/weather/${city}`
+        `https://weather-api-node-exp.herokuapp.com/api/weather/${city}`
       );
 
       dispatch({
