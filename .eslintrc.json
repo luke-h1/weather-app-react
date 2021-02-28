@@ -13,6 +13,8 @@
     "rules": {
         "import/prefer-default-export": "off",
         "no-console": "off",
-        "import/extensions": "off"
+        "import/extensions": "off",
+        "consistent-return": "off",
+        "no-unused-vars": "off"
     }
 }
