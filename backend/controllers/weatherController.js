@@ -10,7 +10,7 @@ const city = asyncHandler(async (req, res) => {
       `http://api.weatherapi.com/v1/current.json?key=${process.env.API_KEY}&q=${req.params.city}`,
     );
     const { data } = await axios.get(request);
-    console.log(data)
+    console.log(data);
     return res.status(200).json({ data, errors: [] });
   } catch (e) {
     console.error(e);
