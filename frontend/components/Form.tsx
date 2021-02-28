@@ -8,6 +8,7 @@ import {
   ListItem,
   Flex,
   FormLabel,
+  List,
   Input,
   Text,
 } from '@chakra-ui/react';
@@ -95,33 +96,33 @@ const RegisterScreen: React.FC = () => {
                   {weather && (
                     <>
                       <Flex direction="column" align="center" justify="center" mt={20}>
-                        <UnorderedList>
-                          <ListItem mb={10}>
+                        <List spacing={10}>
+                          <ListItem>
                             {' '}
                             LocalTime:
                             {' '}
                             {weather.data.location.localtime}
                           </ListItem>
-                          <ListItem mb={10}>
+                          <ListItem>
                             {' '}
                             Wind:
                             {weather.data.current.wind_mph}
                             {' '}
                             MPH
                           </ListItem>
-                          <ListItem mb={10}>
+                          <ListItem>
                             {' '}
                             Humidity:
                             {' '}
                             {weather.data.current.humidity}
                           </ListItem>
-                          <ListItem mb={10}>
+                          <ListItem>
                             {' '}
                             Temp:
                             {' '}
                             {weather.data.current.temp_c}
                           </ListItem>
-                        </UnorderedList>
+                        </List>
                       </Flex>
                     </>
                   )}
