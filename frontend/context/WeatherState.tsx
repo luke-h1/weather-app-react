@@ -9,15 +9,12 @@ import {
 } from './constants/WeatherConstants';
 import weatherReducer from './weatherReducer';
 
-const WeatherState = (props) => {
+const WeatherState = ({ children }) => {
   const initialState = {
     loading: false,
-    city: null,
     weather: null,
   };
-
   const [state, dispatch] = useReducer(weatherReducer, initialState);
-
   const setLoading = () => dispatch({ type: SET_LOADING });
 
   const searchWeather = async (city) => {
@@ -37,4 +34,17 @@ const WeatherState = (props) => {
       });
     }
   };
+  return (
+    <WeatherContext.Provider
+      value={{
+        weather: state.weather,
+        loading: state.loading,
+        searchWeather,
+      }}
+    >
+      {children}
+    </WeatherContext.Provider>
+  );
 };
+
+export default WeatherState;
