@@ -1,6 +1,5 @@
 #!/bin/bash
 echo "Deploying API to heroku 🤠"
-cd backend
 git checkout main && git merge dev
 git add * 
 git commit -am "deploy"
