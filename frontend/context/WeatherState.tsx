@@ -15,18 +15,18 @@ const WeatherState = ({ children }) => {
     weather: null,
   };
   const [state, dispatch] = useReducer(weatherReducer, initialState);
-  const setLoading = () => dispatchj({ type: SET_LOADING });
+  const setLoading = () => dispatch({ type: SET_LOADING });
 
   const searchWeather = async (city) => {
     try {
       setLoading();
-      const { data } = await axios.get(
-        `http://localhost:5000/api/weather/${city}`
+      const res = await axios.get(
+        `http://localhost:5001/api/weather/${city}`
       );
 
       dispatch({
         type: SEARCH_WEATHER,
-        payload: data,
+        payload: res.data,
       });
     } catch (e) {
       dispatch({
@@ -40,6 +40,7 @@ const WeatherState = ({ children }) => {
         weather: state.weather,
         loading: state.loading,
         searchWeather,
+        setLoading,
       }}
     >
       {children}

@@ -13,8 +13,6 @@
     "lint:backend": "eslint ./backend/ --ignore-path .gitignore --ignore-pattern node_modules --fix",
     "lint:frontend": "npm run lint --prefix frontend",
     "lint:all": "npm run lint:backend && npm run lint:frontend"
-
-
   },
   "keywords": [],
   "author": "",
