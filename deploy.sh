@@ -9,3 +9,4 @@ echo ""
 echo ""
 echo "deploying frontend to vercel 🤠"
 cd ../frontend && vc && vc --prod 
+
