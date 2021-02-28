@@ -115,12 +115,15 @@ const RegisterScreen: React.FC = () => {
                             Humidity:
                             {' '}
                             {weather.data.current.humidity}
+                            %
                           </ListItem>
                           <ListItem>
                             {' '}
                             Temp:
                             {' '}
                             {weather.data.current.temp_c}
+                            {' '}
+                            degrees
                           </ListItem>
                         </List>
                       </Flex>
