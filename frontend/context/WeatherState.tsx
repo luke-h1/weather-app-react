@@ -15,7 +15,7 @@ const WeatherState = ({ children }) => {
     weather: null,
   };
   const [state, dispatch] = useReducer(weatherReducer, initialState);
-  const setLoading = () => dispatch({ type: SET_LOADING });
+  const setLoading = () => dispatchj({ type: SET_LOADING });
 
   const searchWeather = async (city) => {
     try {
