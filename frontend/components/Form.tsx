@@ -1,23 +1,11 @@
 import React, { useEffect } from 'react';
-import {
-  Formik, Form, useField, FieldAttributes,
-} from 'formik';
+import { Formik, Form, useField, FieldAttributes } from 'formik';
 import * as yup from 'yup';
-import { useRouter } from 'next/router';
-import { useDispatch, useSelector } from 'react-redux';
-import {
-  Box,
-  Flex,
-  Heading,
-  FormLabel,
-  Input,
-} from '@chakra-ui/react';
-
-import { Button } from 'components/Button';
-import { LoginSchema } from 'validations/userValidation';
-import Error from 'components/Error';
-import Loader from 'components/Loader';
-import { login } from '../store/actions/userActions';
+import { Box, Flex, Heading, FormLabel, Input } from '@chakra-ui/react';
+import { Button } from './Button';
+import { WeatherSchema } from '../validations/WeatherValidation';
+import Error from './Error';
+import Loader from './Loader';
 
 const CustomInput: React.FC<FieldAttributes<{}>> = ({
   placeholder,
@@ -41,7 +29,7 @@ const CustomInput: React.FC<FieldAttributes<{}>> = ({
 const RegisterScreen: React.FC = () => {
   const router = useRouter();
   const userRegister = useSelector((state) => state.userLogin);
-  const { loading, error, userInfo} = userRegister;
+  const { loading, error, userInfo } = userRegister;
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -76,13 +64,12 @@ const RegisterScreen: React.FC = () => {
           initialValues={{
             email: '',
             password: '',
-
           }}
-          validationSchema={LoginSchema}
+          validationSchema={WeatherSchema}
           onSubmit={(data, { setSubmitting }) => {
             const { email, password } = data;
             setSubmitting(true);
-            dispatch(login(email, password));
+            // make async call to get weather here 
             setSubmitting(false);
           }}
         >
@@ -107,7 +94,9 @@ const RegisterScreen: React.FC = () => {
 
                 <FormLabel as="p" color="red">
                   {' '}
-                  {errors.email || errors.password ? 'Invalid credentials!' : ''}
+                  {errors.email || errors.password
+                    ? 'Invalid credentials!'
+                    : ''}
                 </FormLabel>
 
                 <Button as="button" disabled={isSubmitting} type="submit">
