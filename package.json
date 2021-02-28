@@ -12,7 +12,8 @@
     "test": "cross-env NODE_ENV=testing jest --forceExit --detectOpenHandles  --silent",
     "lint:backend": "eslint ./backend/ --ignore-path .gitignore --ignore-pattern node_modules --fix",
     "lint:frontend": "npm run lint --prefix frontend",
-    "lint:all": "npm run lint:backend && npm run lint:frontend"
+    "lint:all": "npm run lint:backend && npm run lint:frontend",
+    "deploy": "sh deploy.sh"
   },
   "keywords": [],
   "author": "",
