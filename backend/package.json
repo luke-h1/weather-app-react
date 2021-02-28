@@ -5,12 +5,12 @@
   "main": "server.js",
   "type": "module",
   "scripts": {
-    "start": "node backend/server",
-    "server": "nodemon backend/server",
+    "start": "node server",
+    "server": "nodemon server",
     "frontend": "npm run dev --prefix frontend",
     "dev": "concurrently \"npm run server\" \" npm run frontend\"",
     "test": "cross-env NODE_ENV=testing jest --forceExit --detectOpenHandles  --silent",
-    "lint:backend": "eslint ./backend/ --ignore-path .gitignore --ignore-pattern node_modules --fix",
+    "lint:backend": "eslint --ignore-path .gitignore --ignore-pattern node_modules --fix",
     "lint:frontend": "npm run lint --prefix frontend",
     "lint:all": "npm run lint:backend && npm run lint:frontend",
     "deploy": "sh deploy.sh"
