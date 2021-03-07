@@ -74,6 +74,8 @@ const RegisterScreen: React.FC = () => {
         >
           {({ isSubmitting, errors }) => (
             <>
+              {error && <Error>{error}</Error>}
+              {loading && <Loader />}
               <Form>
                 <CustomInput
                   placeholder="city"
@@ -91,8 +93,7 @@ const RegisterScreen: React.FC = () => {
                   Login
                 </Button>
                 <Flex direction="column" align="center">
-                  {error && <Error>{error}</Error>}
-                  {loading && <Loader />}
+
                   {weather && (
                     <>
                       <Flex direction="column" align="center" justify="center" mt={20}>
