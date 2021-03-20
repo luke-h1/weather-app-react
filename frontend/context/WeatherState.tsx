@@ -9,6 +9,9 @@ import {
 } from './constants/WeatherConstants';
 import weatherReducer from './weatherReducer';
 
+const API_URL = process.env.NODE_ENV === 'production' ? 'https://weather-api-node-exp.herokuapp.com' : 'http://localhost:5000'
+
+
 const WeatherState = ({ children }) => {
   const initialState = {
     loading: false,
@@ -21,7 +24,7 @@ const WeatherState = ({ children }) => {
     try {
       setLoading();
       const res = await axios.get(
-        `https://weather-api-node-exp.herokuapp.com/api/weather/${city}`
+        `${API_URL}/api/weather/${city}`
       );
 
       dispatch({
