@@ -30,8 +30,7 @@
    "scripts": {
       "watch": "tsc -w",
       "dev": "nodemon src/index.ts",
-      "start": "pm2 start src/index.ts",
-      "restart": "pm2 restart src/index.ts && npm run start",
+      "start": "pm2 start dist/src/index.js",
       "lint": "eslint ./src/**/*.ts --fix && eslint ./src/*.ts --fix"
    }
 }
