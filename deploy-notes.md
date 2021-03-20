@@ -63,7 +63,7 @@ sudo ufw allow https (Port 443)
 ```
 sudo apt install nginx
 
-sudo nano /etc/nginx/sites-available/default
+sudo vim /etc/nginx/sites-available/default
 ```
 Add the following to the location part of the server block
 ```
@@ -108,9 +108,10 @@ It may take a bit to propogate
 
 10. Add SSL with LetsEncrypt
 ```
-sudo add-apt-repository ppa:certbot/certbot
-sudo apt-get update
-sudo apt-get install python-certbot-nginx
+sudo apt update
+sudo apt install snapd
+sudo snap install snap-store
+sudo snap install certbot --classic
 sudo certbot --nginx -d yourdomain.com -d www.yourdomain.com
 
 # Only valid for 90 days, test the renewal process with
