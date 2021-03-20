@@ -6,4 +6,4 @@ ssh root@ip-address
 cd apps/weather-app-react
 git pull 
 cd server
-pm2 restart dist/src/index.js
+pm2 restart src/index.ts
