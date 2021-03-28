@@ -30,7 +30,8 @@
    "scripts": {
       "watch": "tsc -w",
       "dev": "nodemon src/index.ts",
-      "start": "pm2 start 1",
+      "build": "tsc",
+      "start": "sh start.sh",
       "lint": "eslint ./src/**/*.ts --fix && eslint ./src/*.ts --fix"
    }
 }
