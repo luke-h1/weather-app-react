@@ -32,7 +32,8 @@
     "jsx-a11y/anchor-has-content": "off",
     "import/prefer-default-export": "off",
     "react/no-unescaped-entities": "off",
+    "no-underscore-dangle": "off",
     "max-len": "off",
-    "no-underscore-dangle": "off"
+    "no-tabs": "off" // issue with tailwind class formatting
   }
 }

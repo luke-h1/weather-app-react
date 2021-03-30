@@ -32,17 +32,6 @@ export const Reset = (
         text-decoration: none;
         padding: 0;
       }
-      pre {
-        background: #000;
-        padding: 1rem;
-        border-radius: 10px;
-        margin: 1rem 0 1rem 0;
-        color: #fff;
-        /* DO NOT REMOVE THE BELOW STYLING FOR PRE TAGS */
-        white-space: pre-wrap;
-        word-wrap: break-word;
-        text-align: justify;
-      }
     `}
   />
 );

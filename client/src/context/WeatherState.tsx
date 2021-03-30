@@ -10,15 +10,16 @@ import weatherReducer from './weatherReducer';
 
 const API_URL = process.env.NODE_ENV === 'production' ? 'https://www.weather-app-node-exp-ts.xyz' : 'http://localhost:5000';
 
-const WeatherState = ({ children }) => {
+const WeatherState = ({ children }: { children: React.ReactNode }) => {
   const initialState = {
     loading: false,
     weather: null,
+    error: null,
   };
   const [state, dispatch] = useReducer(weatherReducer, initialState);
   const setLoading = () => dispatch({ type: SET_LOADING });
 
-  const searchWeather = async (city) => {
+  const searchWeather = async (city: string) => {
     try {
       setLoading();
       const res = await axios.get(
@@ -39,6 +40,7 @@ const WeatherState = ({ children }) => {
     <WeatherContext.Provider
       value={{
         weather: state.weather,
+        error: state.error,
         loading: state.loading,
         searchWeather,
         setLoading,
