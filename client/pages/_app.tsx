@@ -1,4 +1,6 @@
-import { Reset } from '../styles/Reset';
+import { Reset } from '../src/styles/Reset';
+import '../src/styles/index.css';
+
 function MyApp({ Component, pageProps }) {
   return (
     <>

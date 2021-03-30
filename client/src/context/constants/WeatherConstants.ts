@@ -1,4 +1,3 @@
 export const SEARCH_WEATHER = 'SEARCH_WEATHER';
 export const SET_LOADING = 'SET_LOADING';
 export const WEATHER_ERROR = 'WEATHER_ERROR';
-
