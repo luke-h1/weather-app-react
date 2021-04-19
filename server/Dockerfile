@@ -29,7 +29,7 @@ COPY --from=builder /usr/src/app/dist ./dist
 
 
 
-EXPOSE 8005
+EXPOSE 5000
 
 
 CMD ["node", "dist/index.js"]
