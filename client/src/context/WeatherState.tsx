@@ -8,7 +8,7 @@ import {
 } from './constants/WeatherConstants';
 import weatherReducer from './weatherReducer';
 
-const API_URL = process.env.NODE_ENV === 'production' ? 'https://www.weather-app-node-exp-ts.xyz' : 'http://localhost:5000';
+const API_URL = process.env.NODE_ENV === 'production' ? 'https://apiv2.weather-app-node-exp-ts.xyz' : 'http://localhost:5000';
 
 const WeatherState = ({ children }: { children: React.ReactNode }) => {
   const initialState = {
