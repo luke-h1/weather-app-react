@@ -32,5 +32,5 @@ COPY --from=builder /usr/src/app/dist ./dist
 EXPOSE 5000
 
 
-CMD ["node", "dist/index.js"]
+CMD ["node", "dist/src/index.js"]
 USER node
