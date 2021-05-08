@@ -24,6 +24,7 @@
     "yup": "^0.32.9"
   },
   "devDependencies": {
+    "@sentry/nextjs": "^6.3.0",
     "@tailwindcss/jit": "^0.1.17",
     "@types/jest": "^26.0.22",
     "@types/node": "^14.14.37",
