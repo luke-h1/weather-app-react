@@ -23,7 +23,7 @@
       "express": "^4.17.1",
       "express-async-handler": "^1.1.4",
       "express-rate-limit": "^5.2.6",
-      "helmet": "^4.4.1",
+      "helmet": "^4.6.0",
       "morgan": "^1.10.0",
       "pm2": "^4.5.5"
    },
